@@ -24,11 +24,11 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Inicio</a>´
-                <a class="navbar-brand" href="#!">Profesores</a>
-                <a class="navbar-brand" href="#!">Cursos</a>
-                <a class="navbar-brand" href="#!">Estudiantes</a>
-                <a class="navbar-brand" href="#!">Entregables</a>
+                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+                <a class="navbar-brand" href="{% url 'Profesores'%}">Profesores</a>
+                <a class="navbar-brand" href="{% url 'Cursos'%}">Cursos</a>
+                <a class="navbar-brand" href="{% url 'Estudiantes'%}">Estudiantes</a>
+                <a class="navbar-brand" href="{% url 'Entregables'%}">Entregables</a>
                 <a class="btn btn-primary" href="#signup">INICIAR</a>
             </div>
         </nav>
@@ -50,23 +50,23 @@
                             <!-- To make this form functional, sign up at-->
                             <!-- https://startbootstrap.com/solution/contact-forms-->
                             <!-- to get an API token!-->
-                           
+                        
                         </div>
                     </div>
                 </div>
             </div>
         </header>
-       
+    
 
         {% block contenidoQueCambia %}
         …..
         {% endblock %} 
         
 
-       
+    
 
         
-     
+    
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">
@@ -76,7 +76,6 @@
                             <li class="list-inline-item"><a href="#!">Ayuda</a></li>
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Contacto</a></li>
-                      
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Curso de Python - CoderHouse.</p>
                     </div>
