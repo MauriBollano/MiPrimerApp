@@ -74,6 +74,9 @@ def buscar(request):
       if request.GET["camada"]:
             camada = request.GET['camada']
             cursos = Curso.objects.filter(camada__icontains=camada)
+            if (len(cursos) == 0):
+                  respuesta = "La camada que buscas no existe"
+                  return HttpResponse(respuesta)
             return render(request, "AppCoder/resultadoBusqueda.html",{"cursos":cursos, "camada": camada})
       else:
             respuesta = "No enviaste datos"
