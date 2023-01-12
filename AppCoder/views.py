@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
-from AppCoder.models import Curso
-
+from AppCoder.models import *
+from AppCoder.forms import *
 # Create your views here.
 
 def curso(request):
@@ -35,3 +35,46 @@ def estudiantes(request):
 def entregables(request):
 
       return render(request, "AppCoder/entregables.html")
+
+
+def cursoFormulario(request):
+      if request.method == "POST":
+            miFormulario = CursoFormulario(request.POST) # Aqui me llega la informacion del html
+            print(miFormulario)
+            
+            if miFormulario.is_valid:
+                  informacion = miFormulario.cleaned_data
+                  curso = Curso(nombre=informacion["curso"], camada=informacion["camada"])
+                  curso.save()
+                  return render(request, "AppCoder/inicio.html")
+      else:
+            miFormulario = CursoFormulario()
+            
+      return render(request, "AppCoder/cursoFormulario.html", {"miFormulario": miFormulario})
+
+def profesorFormulario(request):
+      if request.method == "POST":
+            miFormulario = ProfesorFormulario(request.POST) # Aqui me llega la informacion del html
+            print(miFormulario)
+            
+            if miFormulario.is_valid:
+                  informacion = miFormulario.cleaned_data
+                  profesor = Profesor(nombre=informacion["nombre"], apellido=informacion["apellido"], email=informacion["email"],profesion=informacion["profesion"],)
+                  profesor.save()
+                  return render(request, "AppCoder/inicio.html")
+      else:
+            miFormulario = ProfesorFormulario()
+            
+      return render(request, "AppCoder/cursoFormulario.html", {"miFormulario": miFormulario})
+
+def busquedaCamada(request):
+      return render(request, "AppCoder/busquedaCamada.html")
+
+def buscar(request):
+      if request.GET["camada"]:
+            camada = request.GET['camada']
+            cursos = Curso.objects.filter(camada__icontains=camada)
+            return render(request, "AppCoder/resultadoBusqueda.html",{"cursos":cursos, "camada": camada})
+      else:
+            respuesta = "No enviaste datos"
+      return HttpResponse(respuesta)
