@@ -1,29 +1,36 @@
 from django.db import models
 
 # Create your models here.
-class Curso(models.Model):
+class Vegan(models.Model):
 
-    nombre=models.CharField(max_length=40)
-    camada = models.IntegerField()
+    nombre =models.CharField("Name",max_length=40)
+    dificultad = models.CharField("Difficulty",max_length=10)
+    tiempo = models.IntegerField("Time")
+    calorias=models.IntegerField("Calories")
+    receta=models.TextField("Recipes")
+    imagen = models.ImageField(null=True, blank=True, upload_to="images/")
     
-    def __str__(self):
-        return f"Nombre: {self.nombre} - Camada {self.camada}"
 
-class Estudiante(models.Model):
-    nombre= models.CharField(max_length=30)
-    apellido= models.CharField(max_length=30)
-    email= models.EmailField()
+class Meats(models.Model):
+    nombre =models.CharField("Name",max_length=40)
+    dificultad = models.CharField("Difficulty",max_length=10)
+    tiempo = models.IntegerField("Time")
+    calorias=models.IntegerField("Calories")
+    receta=models.TextField("Recipes")
+    imagen = models.ImageField(null=True, blank=True, upload_to="images/")
 
-class Profesor(models.Model):
-    nombre= models.CharField(max_length=30)
-    apellido= models.CharField(max_length=30)
-    email= models.EmailField()
-    profesion= models.CharField(max_length=30)
+class Vegetarian(models.Model):
+    nombre =models.CharField("Name",max_length=40)
+    dificultad = models.CharField("Difficulty",max_length=10)
+    tiempo = models.IntegerField("Time")
+    calorias=models.IntegerField("Calories")
+    receta=models.TextField("Recipes")
+    imagen = models.ImageField(null=True, blank=True, upload_to="images/")
 
-    def __str__(self):
-        return f"Nombre: {self.nombre} {self.apellido} - Email: {self.email} - Profesion: {self.profesion}"
-
-class Entregable(models.Model):
-    nombre= models.CharField(max_length=30)
-    fechaDeEntrega = models.DateField()  
-    entregado = models.BooleanField()
+class glutenFree(models.Model):
+    nombre =models.CharField("Name",max_length=40)
+    dificultad = models.CharField("Difficulty",max_length=10)
+    tiempo = models.IntegerField("Time")
+    calorias=models.IntegerField("Calories")
+    receta=models.TextField("Recipes")
+    imagen = models.ImageField(null=True, blank=True, upload_to="images/")

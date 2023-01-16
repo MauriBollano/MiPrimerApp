@@ -1,0 +1,12 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+    <h1>Vegetarian recipes</h1>
+    <p>Search or add your favorites vegetarian recipe</p>
+
+    <a href="{% url 'VegetarianFormulario' %}">Add recipe</a>
+
+{% endblock %}
+    

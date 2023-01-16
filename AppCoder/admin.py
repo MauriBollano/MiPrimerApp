@@ -5,10 +5,10 @@ from .models import *
 # Register your models here.
 # registramos los modelos
 
-admin.site.register(Curso)
+admin.site.register(Vegan)
 
-admin.site.register(Estudiante)
+admin.site.register(Meats)
 
-admin.site.register(Profesor)
+admin.site.register(Vegetarian)
 
-admin.site.register(Entregable)
+admin.site.register(glutenFree)

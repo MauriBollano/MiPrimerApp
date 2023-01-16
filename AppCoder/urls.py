@@ -5,12 +5,14 @@ from AppCoder import views
 urlpatterns = [
     
     path('', views.inicio, name= "Inicio"), #esta era nuestra primer view
-    path('cursos', views.cursos, name="Cursos"),
-    path('profesores', views.profesores, name="Profesores"),
-    path('estudiantes', views.estudiantes, name="Estudiantes"),
-    path('entregables', views.entregables, name="Entregables"),
-    path('cursoFormulario', views.cursoFormulario, name="CursoFormulario"),
-    path('profesorFormulario', views.profesorFormulario, name="ProfesorFormulario"),
+    path('vegan', views.vegan, name="Vegan"),
+    path('vegetarian', views.vegetarian, name="Vegetarian"),
+    path('meats', views.meats, name="Meats"),
+    path('glutenFree', views.glutenFree, name="Gluten Free"),
+    path('veganFormulario', views.VeganFormulario, name="VeganFormulario"),
+    path('vegetarianFormulario', views.VegetarianFormulario, name="VegetarianFormulario"),
+    path('meatsFormulario', views.MeatsFormulario, name="MeatsFormulario"),
+    path('glutenFreeFormulario', views.GlutenFreeFormulario, name="GlutenFreeFormulario"),
     path('busquedaCamada', views.busquedaCamada, name="BusquedaCamada"),
     path('resultadoBusqueda', views.buscar),
 ] 
