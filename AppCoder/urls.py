@@ -13,7 +13,7 @@ urlpatterns = [
     path('vegetarianFormulario', views.VegetarianFormulario, name="VegetarianFormulario"),
     path('meatsFormulario', views.MeatsFormulario, name="MeatsFormulario"),
     path('glutenFreeFormulario', views.GlutenFreeFormulario, name="GlutenFreeFormulario"),
-    path('busquedaCamada', views.busquedaCamada, name="BusquedaCamada"),
+    path('busquedaVegetariano', views.busquedaVegetariano, name="BusquedaVegetariano"),
     path('resultadoBusqueda', views.buscar),
 ] 
 

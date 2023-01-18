@@ -7,16 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    {% if cursos %}
+    {% if Vegetarian %}
     <ul>
-    {% for curso in cursos %}
-    <li> {{curso.nombre}} </li>
-    <li> {{curso.camada}} </li>
+    {% for receta in Vegetarian %}
+    <li> {{receta.nombre}} </li>
+    <li> {{receta.dificultad}} </li>
+    <li>{{receta.tiempo}}</li>
+    <li>{{receta.receta}}</li>
     {% endfor %}
 </ul>
 {% endif %}
 
-<form action="/AppCoder/busquedaCamada" method="GET">
+<form action="/AppCoder/busquedaVegetariano" method="GET">
     <input type="submit" value="Volver" />
 </form>
 </body>

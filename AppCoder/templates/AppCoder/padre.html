@@ -18,17 +18,19 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{%static 'AppCoder/css/styles.css' %}" rel="stylesheet" />
 
+        <link href="{%static 'AppCoder/css/stylesprivates.css' %}" rel="stylesheet" />
+
 
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
+        <nav class="navbar navbar-light bg-info static-top">
             <div class="container">
                 <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'Vegetarian'%}">Vegetarian</a>
-                <a class="navbar-brand" href="{% url 'Vegan'%}">Vegan</a>
-                <a class="navbar-brand" href="{% url 'Meats'%}">Meats</a>
-                <a class="navbar-brand" href="{% url 'Gluten Free'%}">Gluten Free</a>
+                <a class="navbar-brand" href="{% url 'Vegetarian'%}">Vegetariano</a>
+                <a class="navbar-brand" href="{% url 'Vegan'%}">Vegano</a>
+                <a class="navbar-brand" href="{% url 'Meats'%}">Carnes</a>
+                <a class="navbar-brand" href="{% url 'Gluten Free'%}">Libre de Gluten</a>
                 <a class="btn btn-primary" href="#signup">INICIAR</a>
             </div>
         </nav>
@@ -40,24 +42,15 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
-                            <!-- Page heading-->
-                            <h1 class="mb-5">Nuestra web Intermedia de Django - CoderHouse</h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                        
+                            <h1 class="mb-5">La Web perfecta para encontrar tus recetas</h1>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </header>
     
-
+        <!-- cuerpo -->
+        
         {% block contenidoQueCambia %}
 
         {% endblock %} 

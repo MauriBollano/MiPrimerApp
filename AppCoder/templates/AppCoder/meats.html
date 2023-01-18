@@ -1,10 +1,25 @@
 {% extends 'AppCoder/padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-    <h1>Meats recipes</h1>
-    <p>Search or add your favorites meats recipe</p>
+<!-- Contenedor principal -->
+<div class = "container-lg">
 
-    <a href="{% url 'MeatsFormulario' %}">Add recipe</a>
+    <!-- Contenedor izquierda con titutlo y agregado,etc -->
+    <div class="row">
+        <div class = "col-sm-4 mt-xxl-auto text-xxl-center">  
+            <h1>Carnes</h1>
+            <p>Busca o agrega tus recetas favoritas</p>
+        
+            <a href="{% url 'MeatsFormulario' %}">Agregar receta</a>
+        </div>
+    <!-- Contenedor derecho con las recetas 3x3? -->
+        <div class = "col-sm-8">
+            <div class="conteiner">
+                <p>Aqui iran las recetas en un grid</p>
+            </div>
+    </div>
+    </div>
+
+</div>
 
 {% endblock %}

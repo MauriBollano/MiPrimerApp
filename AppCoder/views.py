@@ -34,7 +34,7 @@ def VeganFormulario(request):
             
             if miFormulario.is_valid:
                   informacion = miFormulario.cleaned_data
-                  vegan = Vegan(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],calorias=informacion["calorias"],receta=informacion["receta"],imagen=informacion["imagen"])
+                  vegan = Vegan(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],receta=informacion["receta"])
                   vegan.save()
                   return render(request, "AppCoder/inicio.html")
       else:
@@ -47,10 +47,10 @@ def VegetarianFormulario(request):
             miFormulario = VegetarianFormulario(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
             
-            if miFormulario.is_valid:
+            if miFormulario.is_valid():
                   informacion = miFormulario.cleaned_data
-                  vegetarian = Vegetarian(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],calorias=informacion["calorias"],receta=informacion["receta"],imagen=informacion["imagen"])
-                  vegetarian.save()
+                  Vegetarian = vegetarian(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],receta=informacion["receta"])
+                  Vegetarian.save()
                   return render(request, "AppCoder/inicio.html")
       else:
             miFormulario = vegetarianFormulario()
@@ -64,7 +64,7 @@ def MeatsFormulario(request):
             
             if miFormulario.is_valid:
                   informacion = miFormulario.cleaned_data
-                  meats = Meats (nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],calorias=informacion["calorias"],receta=informacion["receta"],imagen=informacion["imagen"])
+                  meats = Meats (nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],receta=informacion["receta"])
                   meats.save()
                   return render(request, "AppCoder/inicio.html")
       else:
@@ -79,7 +79,7 @@ def GlutenFreeFormulario(request):
             
             if miFormulario.is_valid:
                   informacion = miFormulario.cleaned_data
-                  glutenFree = glutenFree(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],calorias=informacion["calorias"],receta=informacion["receta"],imagen=informacion["imagen"])
+                  glutenFree = glutenFree(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],receta=informacion["receta"])
                   vegan.save()
                   return render(request, "AppCoder/inicio.html")
       else:
@@ -87,17 +87,17 @@ def GlutenFreeFormulario(request):
             
       return render(request, "AppCoder/glutenFreeFormulario.html", {"miFormulario": miFormulario})
 
-def busquedaCamada(request):
-      return render(request, "AppCoder/busquedaCamada.html")
+def busquedaVegetariano(request):
+      return render(request, "AppCoder/busquedaVegetariano.html")
 
 def buscar(request):
-      if request.GET["camada"]:
-            camada = request.GET['camada']
-            cursos = Vegan.objects.filter(camada__icontains=camada)
-            if (len(cursos) == 0):
-                  respuesta = "La camada que buscas no existe"
-                  return HttpResponse(respuesta)
-            return render(request, "AppCoder/resultadoBusqueda.html",{"cursos":cursos, "camada": camada})
+      if request.GET["nombre"]:
+            
+            nombre = request.GET['nombre']
+            
+            Vegetarian = Vegetarian.objects.filter(nombre__icontains=nombre)
+            
+            return render(request, "AppCoder/resultadoBusqueda.html",{"nombre":nombre})
       else:
             respuesta = "No enviaste datos"
       return HttpResponse(respuesta)

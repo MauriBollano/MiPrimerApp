@@ -1,11 +1,23 @@
 {% extends 'AppCoder/padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
+<!-- Contenedor principal -->
+<div class = "container-lg">
 
-    <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-    <h1>Gluten Free recipes</h1>
-    <p>Search or add your favorites Gluten Free recipe</p>
-
-    <a href="{% url 'GlutenFreeFormulario' %}">Add recipe</a>
+    <!-- Contenedor izquierda con titutlo y agregado,etc -->
+    <div class="row">
+        <div class = "col-sm-4 mt-xxl-auto text-xxl-center">  
+            <h1>Libre de Gluten</h1>
+            <p>Busca o agrega tus recetas favoritas</p>
+        
+            <a href="{% url 'GlutenFreeFormulario' %}">Agregar receta</a>
+        </div>
+    <!-- Contenedor derecho con las recetas 3x3? -->
+        <div class = "col-sm-8">
+            <div class="conteiner">
+                <p>Aqui iran las recetas en un grid</p>
+            </div>
+    </div>
+    </div>
 
 {% endblock %}
