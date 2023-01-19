@@ -20,20 +20,32 @@
 </head>
 
 <body>
-    <h1>Receta vegana</h1>
-
+<div class="card" style="width: 18rem; background-color: antiquewhite;">
+    <div class="card-body text-center">
+        <h1 class="card-title">Receta vegana</h1>
+    </div>
+    
+    <div class="card-body">
     {% if miFormulario.errors %}
 
     <p style="color: red;"> Están mal los datos, revisar</p>
 
     {% endif %}
-
+    
+    
     <form action="" method="POST">{% csrf_token %}
-        <table>
-            {{ miFormulario.as_table }}
-        </table>
-        <input type="submit" value="Enviar" />
+        <div>
+            <table>
+                {{ miFormulario.as_table }}
+            </table>
+        </div>
+        <div class="text-center d-grid gap-2" styl e="padding-top: 12px;">
+            <input type="submit" class="btn btn-primary btn-success " value="Enviar" />
+        </div>
     </form>
+    
+    </div>
+</div>
 </body>
 
 </html>

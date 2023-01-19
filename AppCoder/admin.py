@@ -11,4 +11,4 @@ admin.site.register(Meats)
 
 admin.site.register(Vegetarian)
 
-admin.site.register(glutenFree)
+admin.site.register(GlutenFree)

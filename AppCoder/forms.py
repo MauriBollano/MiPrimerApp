@@ -1,26 +1,30 @@
 from django import forms
 
-class veganFormulario(forms.Form):
+class VeganFormulario(forms.Form):
     nombre =forms.CharField()
+    """ Deberia agregar que la receta se vea mas grande(solo con size no alcanza) """
     receta= forms.CharField()
     dificultad =forms.CharField()
     tiempo =forms.IntegerField()
 
-class vegetarianFormulario(forms.Form):
+class VegetarianFormulario(forms.Form):
     nombre =forms.CharField()
+    """ Deberia agregar que la receta se vea mas grande(solo con size no alcanza) """
     receta= forms.CharField()
     dificultad =forms.CharField()
     tiempo =forms.IntegerField()
 
-class meatsFormulario(forms.Form):
+class MeatsFormulario(forms.Form):
     nombre =forms.CharField()
+    """ Deberia agregar que la receta se vea mas grande(solo con size no alcanza) """
     receta= forms.CharField()
     dificultad =forms.CharField()
     tiempo =forms.IntegerField()
 
 
-class glutenFreeFormulario(forms.Form):
+class GlutenFreeFormulario(forms.Form):
     nombre =forms.CharField()
+    """ Deberia agregar que la receta se vea mas grande(solo con size no alcanza) """
     receta= forms.CharField()
     dificultad =forms.CharField()
     tiempo =forms.IntegerField()

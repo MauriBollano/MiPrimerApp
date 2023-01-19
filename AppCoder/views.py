@@ -27,7 +27,7 @@ def glutenFree(request):
       return render(request, "AppCoder/glutenFree.html")
 
 
-def VeganFormulario(request):
+def veganFormulario(request):
       if request.method == "POST":
             miFormulario = VeganFormulario(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
@@ -38,26 +38,26 @@ def VeganFormulario(request):
                   vegan.save()
                   return render(request, "AppCoder/inicio.html")
       else:
-            miFormulario = veganFormulario()
+            miFormulario = VeganFormulario()
             
       return render(request, "AppCoder/veganFormulario.html", {"miFormulario": miFormulario})
 
-def VegetarianFormulario(request):
+def vegetarianFormulario(request):
       if request.method == "POST":
             miFormulario = VegetarianFormulario(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
             
             if miFormulario.is_valid():
                   informacion = miFormulario.cleaned_data
-                  Vegetarian = vegetarian(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],receta=informacion["receta"])
-                  Vegetarian.save()
+                  vegetarian = Vegetarian(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],receta=informacion["receta"])
+                  vegetarian.save()
                   return render(request, "AppCoder/inicio.html")
       else:
-            miFormulario = vegetarianFormulario()
+            miFormulario = VegetarianFormulario()
             
       return render(request, "AppCoder/vegetarianFormulario.html", {"miFormulario": miFormulario})
 
-def MeatsFormulario(request):
+def meatsFormulario(request):
       if request.method == "POST":
             miFormulario = MeatsFormulario(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
@@ -68,36 +68,91 @@ def MeatsFormulario(request):
                   meats.save()
                   return render(request, "AppCoder/inicio.html")
       else:
-            miFormulario = meatsFormulario()
+            miFormulario = MeatsFormulario()
             
       return render(request, "AppCoder/meatsFormulario.html", {"miFormulario": miFormulario})
 
-def GlutenFreeFormulario(request):
+def glutenFreeFormulario(request):
       if request.method == "POST":
             miFormulario = GlutenFreeFormulario(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
             
             if miFormulario.is_valid:
                   informacion = miFormulario.cleaned_data
-                  glutenFree = glutenFree(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],receta=informacion["receta"])
-                  vegan.save()
-                  return render(request, "AppCoder/inicio.html")
+                  glutenFree = GlutenFree(nombre=informacion["nombre"], dificultad=informacion["dificultad"], tiempo=informacion["tiempo"],receta=informacion["receta"])
+                  glutenFree.save()
+                  return render(request, "AppCoder/inicio.html") 
       else:
-            miFormulario = glutenFreeFormulario()
+            miFormulario = GlutenFreeFormulario()
             
       return render(request, "AppCoder/glutenFreeFormulario.html", {"miFormulario": miFormulario})
+
 
 def busquedaVegetariano(request):
       return render(request, "AppCoder/busquedaVegetariano.html")
 
-def buscar(request):
+def buscarVegetariano(request):
       if request.GET["nombre"]:
+            nombre=request.GET["nombre"]
+            if len(nombre)>25:
+                  respuesta="Nombre demasiado largo"
+            else:
+                  nombrevege = request.GET['nombre']
+                  rec=Vegetarian.objects.filter(nombre__icontains= nombrevege)
             
-            nombre = request.GET['nombre']
+                  return render(request, "AppCoder/resultadoVegetariano.html",{"rec":rec, "query":nombrevege})
+      else:
+            respuesta = "No enviaste datos"
+      return HttpResponse(respuesta)
+
+
+def busquedaVegano(request):
+      return render(request, "AppCoder/busquedaVegano.html")
+
+def buscarVegano(request):
+      if request.GET["nombre"]:
+            nombre=request.GET["nombre"]
+            if len(nombre)>25:
+                  respuesta="Nombre demasiado largo"
+            else:
+                  nombrevegan = request.GET['nombre']
+                  rec=Vegan.objects.filter(nombre__icontains= nombrevegan)
             
-            Vegetarian = Vegetarian.objects.filter(nombre__icontains=nombre)
+                  return render(request, "AppCoder/resultadoVegano.html",{"rec":rec, "query":nombrevegan})
+      else:
+            respuesta = "No enviaste datos"
+      return HttpResponse(respuesta)
+
+def busquedaMeats(request):
+      return render(request, "AppCoder/busquedaMeats.html")
+
+def buscarMeats(request):
+      if request.GET["nombre"]:
+            nombre=request.GET["nombre"]
+            if len(nombre)>25:
+                  respuesta="Nombre demasiado largo"
+            else:
+                  nombreMeats = request.GET['nombre']
+                  rec=Meats.objects.filter(nombre__icontains= nombreMeats)
             
-            return render(request, "AppCoder/resultadoBusqueda.html",{"nombre":nombre})
+                  return render(request, "AppCoder/resultadoMeats.html",{"rec":rec, "query":nombreMeats})
+      else:
+            respuesta = "No enviaste datos"
+      return HttpResponse(respuesta)
+
+def busquedaGlutenFree(request):
+      return render(request, "AppCoder/busquedaGlutenFree.html")
+
+def buscarGlutenFree(request):
+      if request.GET["nombre"]:
+            nombre=request.GET["nombre"]
+            if len(nombre)>25:
+                  respuesta="Nombre demasiado largo"
+            else:
+                  nombreGlutenFree = request.GET['nombre']
+                  rec=GlutenFree.objects.filter(nombre__icontains= nombreGlutenFree)
+            
+                  return render(request, "AppCoder/resultadoGlutenFree.html",{"rec":rec, "query":nombreGlutenFree})
       else:
             respuesta = "No enviaste datos"
       return HttpResponse(respuesta)

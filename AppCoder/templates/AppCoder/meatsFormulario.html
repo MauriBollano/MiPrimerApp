@@ -20,19 +20,32 @@
 </head>
 
 <body>
-    <h1>Receta con carne</h1>
-    {% if miFormulario.errors %}
-
-    <p style="color: red;"> Están mal los datos, revisar</p>
-
-    {% endif %}
-
-    <form action="" method="POST">{% csrf_token %}
-        <table>
-            {{ miFormulario.as_table }}
-        </table>
-        <input type="submit" value="Enviar" />
-    </form>
+    <div class="card" style="width: 18rem; background-color: antiquewhite;">
+        <div class="card-body text-center">
+            <h1 class="card-title">Receta con carne</h1>
+        </div>
+        
+        <div class="card-body">
+        {% if miFormulario.errors %}
+    
+        <p style="color: red;"> Están mal los datos, revisar</p>
+    
+        {% endif %}
+        
+        
+        <form action="" method="POST">{% csrf_token %}
+            <div>
+                <table>
+                    {{ miFormulario.as_table }}
+                </table>
+            </div>
+            <div class="text-center d-grid gap-2" style="padding-top: 12px;">
+                <input type="submit" class="btn btn-primary btn-success " value="Enviar" />
+            </div>
+        </form>
+        
+        </div>
+    </div>
 </body>
 
 </html>

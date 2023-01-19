@@ -6,19 +6,72 @@
 
     <!-- Contenedor izquierda con titutlo y agregado,etc -->
     <div class="row">
-        <div class = "col-sm-4 mt-xxl-auto text-xxl-center">  
-            <h1>Carnes</h1>
-            <p>Busca o agrega tus recetas favoritas</p>
-        
-            <a href="{% url 'MeatsFormulario' %}">Agregar receta</a>
+        <div class = "col-sm-4" style="background-color: rgb(173, 194, 118); border-radius: 8px;padding: 12px;">
+            <div class="px-2" style="text-align: center;">
+                <h1>RECETAS CON CARNE</h1>
+                <p>Busca o agrega tus recetas favoritas</p>
+            
+                <a href="{% url 'MeatsFormulario' %}" class="btn btn-success" style="width: 140px;">Agregar receta</a>
+                <a href="{% url 'BusquedaMeats'%}" class="btn btn-success" style="width: 140px;">Buscar receta</a>
+            </div>  
         </div>
     <!-- Contenedor derecho con las recetas 3x3? -->
-        <div class = "col-sm-8">
-            <div class="conteiner">
-                <p>Aqui iran las recetas en un grid</p>
+    <div class = "col-sm-8">
+        <div class="conteiner" style="background-color: rgb(173, 194, 118); border-radius: 8px; padding: 20px;">
+            
+            <!-- Aca deberia iterar la informacion de la DB con una card por receta(y agregar imagen a los models) -->
+            <div class="container ">
+                <div class="row row-cols-3 row-cols-lg-3 g-2 g-lg-3">
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 1</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 2</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 3</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 4</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 5</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 6</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 7</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 8</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div style="background-color: antiquewhite;border-radius: 4px;padding: 8px;">
+                            <div class="p-3">RECETA 9</div>
+                        </div>
+                    </div>
+                    
+                </div>
+            
             </div>
-    </div>
-    </div>
+        </div>
 
 </div>
 
